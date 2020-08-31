@@ -1,0 +1,34 @@
+version: 2.1
+jobs:
+    build:
+        docker:
+            - image: circleci/node
+        steps:
+            - checkout
+            - run:
+                name: update-npm
+                command: 'sudo npm install -g npm@latest'
+            - restore_cache:
+                key: dependency-cache-{{ checksum "package.json" }}
+            - run:
+                name: install-dependencies
+                command: npm install
+            - save_cache:
+                key: dependency-cache-{{ checksum "package.json" }}
+                paths:
+                    - ./node_modules
+            - run:
+                name: build
+                command: npm run build
+            - run:
+                name: test
+                command: npm run test
+            - run:
+                name: report-coverage
+                command: npm run report-coverage
+            - run:
+                name: npm-link
+                command: sudo npm link
+            - run:
+                name: smoke-test
+                command: speedcurve --help
