@@ -25,4 +25,7 @@ jobs:
                 command: npm run test
             - run:
                 name: smoke-test
-                command: speedcurve --help
+                command: npm install -g speedcurve
+            - run:
+                  name: testtttt
+                  command: speedcurve --help
