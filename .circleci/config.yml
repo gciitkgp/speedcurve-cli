@@ -7,4 +7,4 @@ jobs:
             - run:
                   name: WebPageTest
                   command: |
-                      curl "https://api.speedcurve.com/v1/deploys" -u ei3pq3j1dmvp9g9by31brfz8b68tek:Gvin#ind1452 --request POST --data site_id=330683 --data-urlencode "note=#${CIRCLE_BUILD_NUM}" —data-urlencode "detail=${CIRCLE_BUILD_URL}"
+                      curl "https://api.speedcurve.com/v1/deploys" -u 6spP6RTwq9UmAPYCQd8aPx8ULhjtGx:Gvin#ind1452 --request POST --data site_id=330232 --data-urlencode "note=#${CIRCLE_BUILD_NUM}" —data-urlencode "detail=${CIRCLE_BUILD_URL}"
